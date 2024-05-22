@@ -1,0 +1,11 @@
+[33mcommit d1dd6b8bf17225e9fde1e09dc66f18e46f99d556[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: mfurqon <niqon0002@gmail.com>
+Date:   Thu Apr 25 10:08:16 2024 +0700
+
+    Menambahkan file Latihan1.php, MataKuliah.php, Model_latihan1.php, view-data-matakuliah.php, view-form-matakuliah.php, view-latihan.php DLL
+
+[33mcommit 5de081f5398d18cc6ba7f899cfa7825dc47753dc[m
+Author: mfurqon <niqon0002@gmail.com>
+Date:   Thu Apr 25 09:39:00 2024 +0700
+
+    Menambahkan file Contoh1.php pada tugas pertemuan 1
