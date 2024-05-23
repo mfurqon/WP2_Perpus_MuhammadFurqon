@@ -82,6 +82,7 @@ class Autentifikasi extends CI_Controller
             redirect('autentifikasi');
         }
     }
+<<<<<<< HEAD
 
     public function blok()
     {
@@ -170,4 +171,6 @@ class Autentifikasi extends CI_Controller
             redirect('autentifikasi');
         }
     }
+=======
+>>>>>>> 7b26cd3e5e6fc48dcf9dc9c3ae4e0a152c9ecf8d
 }
