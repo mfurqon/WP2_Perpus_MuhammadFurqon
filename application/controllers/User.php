@@ -15,8 +15,8 @@ class User extends CI_Controller
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('user/index', $data);
         $this->load->view('templates/footer');
     }
@@ -29,8 +29,8 @@ class User extends CI_Controller
         $data['anggota'] = $this->db->get('user')->result_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('user/anggota', $data);
         $this->load->view('templates/footer');
     }
@@ -46,8 +46,8 @@ class User extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/topbar', $data);
             $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
             $this->load->view('user/ubah-profile', $data);
             $this->load->view('templates/footer');
         } else {
