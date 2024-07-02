@@ -32,7 +32,7 @@ class ModelBuku extends CI_Model
     public function total($field, $where)
     {
         $this->db->select_sum($field);
-        if(!empty($where) && count($where) > 0) {
+        if (!empty($where) && count($where) > 0) {
             $this->db->where($where);
         }
 
@@ -67,12 +67,11 @@ class ModelBuku extends CI_Model
     }
 
     // Join
-    public function joinKategoriBuku($where)
+    public function joinKategoriBuku()
     {
-        $this->db->select('buku.id_kategori, kategori.kategori');
+        $this->db->select('buku.*, kategori.nama_kategori');
         $this->db->from('buku');
-        $this->db->join('kategori', 'kategori.id = buku.id_kategori');
-        $this->db->where($where);
-        return $this->db->get();
+        $this->db->join('kategori', 'buku.id_kategori = kategori.id_kategori');
+        return $this->db->get()->result();
     }
 }

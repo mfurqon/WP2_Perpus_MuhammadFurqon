@@ -3,9 +3,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ModelUser extends CI_Model
 {
+    public function getAllUser()
+    {
+        return $this->db->get('user');
+    }
+
+    public function getAllRole()
+    {
+        return $this->db->get('role');
+    }
+
     public function simpanData($data = null)
     {
         $this->db->insert('user', $data);
+    }
+
+    public function hapusAnggota($where = null)
+    {
+        $this->db->delete('user', $where);
     }
 
     public function cekData($where = null)

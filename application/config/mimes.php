@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -180,5 +180,6 @@ return array(
 	'odt'	=>	'application/vnd.oasis.opendocument.text',
 	'odm'	=>	'application/vnd.oasis.opendocument.text-master',
 	'ott'	=>	'application/vnd.oasis.opendocument.text-template',
-	'oth'	=>	'application/vnd.oasis.opendocument.text-web'
+	'oth'	=>	'application/vnd.oasis.opendocument.text-web',
+	'webp' => array('image/webp')
 );

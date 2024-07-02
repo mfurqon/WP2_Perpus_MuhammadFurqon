@@ -11,7 +11,7 @@ class Autentifikasi extends CI_Controller
 
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
             'required' => 'Email Harus diisi!!',
-            'valid_email' => 'Email Tidak Benar!!'
+            'valid_email' => 'Email Tidak Valid!!'
         ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim', [
             'required' => 'Password harus diisi!'
@@ -99,14 +99,7 @@ class Autentifikasi extends CI_Controller
             redirect('user');
         }
         // Membuat rule untuk inputan nama agar tidak boleh kosong dengan membuat pesan error dengan bahasa sendiri yaitu 'Nama Belum Diisi'
-        $this->form_validation->set_rules(
-            'nama',
-            'Nama Lengkap',
-            'required',
-            [
-                'required' => 'Nama Belum Diisi!!'
-            ]
-        );
+        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required', ['required' => 'Nama Belum Diisi!!']);
 
         /* 
         Membuat rule untuk inputan email agar tidak boleh kosong, tidak ada spasi, format email harus valid dan email belum
@@ -116,11 +109,10 @@ class Autentifikasi extends CI_Controller
         */
 
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email|is_unique[user.email]', [
-            'valid_email' => 'Email Tidak Benar!!',
+            'valid_email' => 'Email Tidak Valid!!',
             'required' => 'Email Belum Diisi!!',
             'is_unique' => 'Email Sudah Terdaftar!!'
         ]);
-
 
         /*
         Membuat rule untuk inputan password agar tidak boleh kosong, tidak ada spasi, tidak boleh kurang dari 3 digit, dan password
@@ -134,7 +126,7 @@ class Autentifikasi extends CI_Controller
             'min_length' => 'Password Terlalu Pendek!!',
         ]);
 
-        $this->form_validation->set_rules('password2', 'Repeat Password', 'required|trim|matches[password1]', [
+        $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|trim|matches[password1]', [
             'matches' => 'Password Tidak Sama!!',
         ]);
 
@@ -169,5 +161,18 @@ class Autentifikasi extends CI_Controller
             );
             redirect('autentifikasi');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+
+        $this->session->set_flashdata('pesan', '
+                <div class="alert alert-success" role="alert">
+                &#127881; Anda berhasil logout
+                </div>
+            ');
+        redirect('autentifikasi');
     }
 }
